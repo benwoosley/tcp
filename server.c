@@ -24,7 +24,7 @@ void check(int returnValue, char *errorMessage)
     }
 }
 
-int setup_server(short port, int backlog)
+int setup_server()
 {
     int serverSocket;
     check((serverSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)), "Error in socket()");
@@ -181,7 +181,7 @@ void *handle_connection(int clientSocket)
 
 int main()
 {
-    int serverSocket = setup_server(PORT, BACKLOG);
+    int serverSocket = setup_server();
 
     fd_set currentSockets, readySockets;
     FD_ZERO(&currentSockets);
